@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="ProjetoFinal.css">
+</head>
+
+<body>
+    <header>
+        <h1>Kanban</h1> 
+    </header>
+
+    <main>
+        <div class="board">
+            
+            <div class="column" id="pending">
+                <div class="column-header">
+                    <h2>Pendentes</h2> 
+                    <button class="options-btn" onclick="showOptions('pending')">⋮</button>
+                    
+                </div>
+                <div class="task-list" id="pending-tasks">
+                    <div class="task new-task" onclick="openTaskModal()">
+                        <p>Adicionar Tarefa</p> 
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="column" id="in-progress">
+                <div class="column-header">
+                    <h2>Em Andamento</h2> 
+                    <button class="options-btn" onclick="showOptions('in-progress')">⋮</button>
+                    
+                </div>
+                <div class="task-list" id="in-progress-tasks">
+                </div>
+            </div>
+
+            
+            <div class="column" id="completed">
+                <div class="column-header">
+                    <h2>Concluídas</h2> 
+                    <button class="options-btn" onclick="showOptions('completed')">⋮</button>
+                   
+                </div>
+                <div class="task-list" id="completed-tasks">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span> 
+            <form id="taskForm">
+                <input type="hidden" id="taskId">
+                <label for="taskTitle">Título</label>
+                <input type="text" id="taskTitle" name="taskTitle" required>
+
+                <label for="taskDescription">Descrição</label> 
+                <textarea id="taskDescription" name="taskDescription" required></textarea>
+
+                <label for="taskPriority">Prioridade</label>
+                <select id="taskPriority" name="taskPriority" required>
+                    <option value="Alta">Alta</option>
+                    <option value="Média">Média</option>
+                    <option value="Baixa">Baixa</option>
+                </select>
+
+                <label for="taskDueDate">Data de Vencimento</label>
+                
+                <input type="date" id="taskDueDate" name="taskDueDate" required>
+
+                <label for="taskResponsable">Responsável</label> 
+                <input type="text" id="taskResponsable" name="taskResponsable" required>
+
+                <label for="taskStatus">Status</label> 
+                <select id="taskStatus" name="taskStatus" required>
+                    <option value="Pendente">Pendente</option>
+                    <option value="Em Andamento">Em Andamento</option>
+                    <option value="Concluída">Concluída</option>
+                </select>
+
+                <button type="submit">Salvar</button> 
+                <button type="button" id="cancelButton">Cancelar</button> 
+            </form>
+        </div>
+    </div>
+
+    
+    <div id="optionsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span> 
+            <div id="taskOptions"></div> 
+        </div>
+    </div>
+
+    <script src="ProjetoFinal.js"></script> 
+</body>
+
+</html>
